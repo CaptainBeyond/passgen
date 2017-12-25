@@ -1,5 +1,4 @@
 import telebot
-import sqlite3
 from string import digits
 from random import choice
 
