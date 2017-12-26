@@ -14,7 +14,7 @@ def start(message):
 @bot.message_handler(commands=['signin'])
 def signin(message):
     password = ""
-    bot.send_message(message.chat.id, 'Твой пароль для входа в приложение:{password}'.format(name=message.text,password = password.join([choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ' + digits) for i in range(6)]) ))
+    bot.send_message(message.chat.id, 'Ваш пароль для входа в приложение:{password}'.format(name=message.text,password = password.join([choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ' + digits) for i in range(6)]) ))
 
 @bot.message_handler(commands=['signup'])
 def signup(message):
