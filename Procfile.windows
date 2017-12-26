@@ -1,1 +1,1 @@
-web: python passgen.py
+worker: python passgen.py
