@@ -39,3 +39,4 @@ def last_check(message):
         bot.send_message(message.chat.id, 'Спасибо за регистрацию!')
 
 bot.polling(none_stop=True)
+
