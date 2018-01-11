@@ -42,7 +42,9 @@ def signup(message):
             cursor.execute("exec insertIntoUserTable @phoneNumber = '{phone_number}', @code = '{password}', @user_name = "
                            "'{username}'".format(username = message.chat.username, password = random_password,
                             phone_number = message.contact.phone_number[2:]))
+            con.commit()
             bot.send_message(message.chat.id, "{random_password}".format(random_password=random_password))
+            bot.send_message(message.chat.id, "Добро пожаловать, для входа в приложение используйте вышеуказанный код")
         else:
             bot.send_message(message.chat.id, "Похвально, что Вы хотите зарегистрировать друга, но мы уверены что он "
                                               "уже взрослый и может сам справится нажатием трех клавиш.")
@@ -51,7 +53,6 @@ def signup(message):
         bot.send_message(message.chat.id, "Прошу прощения, но это явно не похоже на Ваши контакты, попробуйте еще")
         start(message)
 
-    con.commit()
 
 
 bot.polling(none_stop=True)
