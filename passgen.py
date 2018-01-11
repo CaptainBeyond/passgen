@@ -19,20 +19,6 @@ def start(message):
     prev_message = bot.send_message(message.chat.id, text='Отправьте нам Ваши контакты, чтобы мы могли быстро и легко '
                                                           'зарегистрировать Вас в приложении!',  reply_markup=keyboard)
     bot.register_next_step_handler(prev_message, signup)
-# def checkphone(message):
-#     phone = bot.send_message(message.chat.id,"Номер проверен на наличие в нашей базе данных")
-#     cursor.execute("declare @check int set @check= 0 SELECT  @check = case when Count(mobile_number) is not null then 1 "
-#                    "else 0 end  FROM users WHERE mobile_number = {phone_number} group by(mobile_number) select @check as"
-#                    " result".format(phone_number=message.contact.phone_number[2:]))
-#     result = cursor.fetchone()
-#     check, = result
-#     check = int(check)
-#     if check == 1:
-#         bot.register_next_step_handler(phone, signup)
-#         signup(message)
-#     else:
-#         bot.send_message(message.chat.id, "Данный номер не зарегистрирован")
-
 @bot.message_handler(commands=['signup'])
 def signup(message):
     try:
@@ -52,8 +38,6 @@ def signup(message):
     except AttributeError:
         bot.send_message(message.chat.id, "Прошу прощения, но это явно не похоже на Ваши контакты, попробуйте еще")
         start(message)
-
-
 
 bot.polling(none_stop=True)
 
